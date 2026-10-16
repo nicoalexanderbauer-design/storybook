@@ -25,7 +25,7 @@ Canonical domain: https://sekkemache.info/
 
 GitHub Pages serves the root of `main`. The root `CNAME` binds `sekkemache.info` to this repository; `www.sekkemache.info` aliases the GitHub account hostname. IONOS manages the DNS, with all four GitHub IPv4 and IPv6 addresses. Existing mail records are preserved.
 
-The domain is verified in the owner's GitHub account to restrict Pages publishing on the domain and its immediate subdomains. Keep the verification TXT record in DNS. HTTPS certificate issuance was requested on 16 October 2026; final validation is recorded in DOMAIN-SETUP.md.
+The domain is verified in the owner's GitHub account to restrict Pages publishing on the domain and its immediate subdomains. Keep the verification TXT record in DNS. HTTPS is enforced and both accounts were verified in Safari on the custom domain on 16 October 2026. Domain checks are recorded in DOMAIN-SETUP.md and tests/domain-results.json.
 
 
 ## Security boundary

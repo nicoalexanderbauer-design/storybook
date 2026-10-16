@@ -1,6 +1,6 @@
 # sekkemache.info
 
-Configuration applied on 16 October 2026. IONOS DNS and the GitHub Pages custom-domain binding are configured. Domain ownership is verified in the GitHub account `nicoalexanderbauer-design`. HTTPS certificate issuance is in progress; this file must be updated with the completed checks before the deployment is marked finished.
+Configuration applied on 16 October 2026. IONOS DNS and the GitHub Pages custom-domain binding are configured. Domain ownership is verified in the GitHub account `nicoalexanderbauer-design`. HTTPS is active and GitHub Pages Enforce HTTPS is enabled. Direct Safari access and both account logins passed on the custom domain.
 
 ## DNS configuration
 
@@ -32,13 +32,17 @@ Only IONOS's Default Site A, AAAA and `_dep_ws_mutex` records were replaced/deac
 
 The browser was used to apply the configuration. No IONOS API key was created or required. The optional local helper in deployment/ is not needed for this completed DNS configuration.
 
-## Validation so far
+## Completed validation
 
 - GitHub Pages shows the custom domain sekkemache.info and deploys the root CNAME from main.
 - The IONOS DNS table shows all required records and preserved mail records.
 - Cloudflare's public DNS resolver returns all four A records, all four AAAA records, the www CNAME and the verification TXT.
 - GitHub account Pages settings reports: Successfully verified sekkemache.info.
-- GitHub has requested a TLS certificate. HTTPS enforcement, direct browser access and login checks remain pending certificate issuance.
+- All four authoritative IONOS nameservers return the intended A, AAAA and www CNAME records.
+- TLS certificate validates for sekkemache.info and www.sekkemache.info; GitHub Pages Enforce HTTPS is checked.
+- HTTP returns 301 to HTTPS; HTTPS apex returns 200; HTTPS www returns 301 to the canonical apex.
+- Safari loads the custom domain over HTTPS without a warning. Both existing accounts sign in; own-book editing and other-book read-only controls are correct. Test sessions were signed out.
+- Completed checks and certificate details are recorded in tests/domain-results.json.
 
 ## Registration
 

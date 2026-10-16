@@ -1,0 +1,58 @@
+{
+  "checkedAt": "2026-10-16T20:51:40.301Z",
+  "host": "sekkemache.info",
+  "httpsEnforced": true,
+  "githubDnsCheck": "successful",
+  "domainOwnership": "verified",
+  "certificate": {
+    "authorized": true,
+    "subjectAltName": "DNS:sekkemache.info, DNS:www.sekkemache.info",
+    "issuer": "Let's Encrypt",
+    "validFrom": "Oct 16 19:50:15 2026 GMT",
+    "validTo": "Jan 14 19:50:14 2027 GMT"
+  },
+  "httpChecks": [
+    {
+      "url": "http://sekkemache.info/",
+      "status": 301,
+      "location": "https://sekkemache.info/",
+      "slutbook": false
+    },
+    {
+      "url": "https://sekkemache.info/",
+      "status": 200,
+      "location": null,
+      "slutbook": true
+    },
+    {
+      "url": "https://www.sekkemache.info/",
+      "status": 301,
+      "location": "https://sekkemache.info/",
+      "slutbook": false
+    }
+  ],
+  "browser": "Safari",
+  "browserChecks": [
+    {
+      "name": "Direct HTTPS page loads",
+      "passed": true
+    },
+    {
+      "name": "nonchalantnico signs in on custom domain",
+      "passed": true
+    },
+    {
+      "name": "lutschiluki signs in on custom domain",
+      "passed": true
+    },
+    {
+      "name": "Own book editable and other book read-only for both accounts",
+      "passed": true
+    },
+    {
+      "name": "Both test sessions signed out",
+      "passed": true
+    }
+  ],
+  "billing": "Not inspected; domain is registered and active"
+}
