@@ -1,0 +1,93 @@
+{
+  "at": "2026-10-16T18:36:27.018Z",
+  "checks": [
+    {
+      "name": "Anonymous cannot read sb_members",
+      "pass": true
+    },
+    {
+      "name": "Anonymous cannot read sb_people",
+      "pass": true
+    },
+    {
+      "name": "Anonymous cannot read sb_entries",
+      "pass": true
+    },
+    {
+      "name": "Anonymous cannot read sb_connections",
+      "pass": true
+    },
+    {
+      "name": "Owner creates person",
+      "pass": true
+    },
+    {
+      "name": "Second owner creates person",
+      "pass": true
+    },
+    {
+      "name": "Friend can read person",
+      "pass": true
+    },
+    {
+      "name": "Friend update rejected by RLS",
+      "pass": true
+    },
+    {
+      "name": "Friend delete rejected by RLS",
+      "pass": true
+    },
+    {
+      "name": "Cannot assign new person to other owner",
+      "pass": true
+    },
+    {
+      "name": "Cannot transfer ownership",
+      "pass": true
+    },
+    {
+      "name": "Owner creates entry",
+      "pass": true
+    },
+    {
+      "name": "Friend cannot edit entry",
+      "pass": true
+    },
+    {
+      "name": "Cannot write entry for friend person",
+      "pass": true
+    },
+    {
+      "name": "Cross-book connection allowed",
+      "pass": true
+    },
+    {
+      "name": "Friend cannot delete connection",
+      "pass": true
+    },
+    {
+      "name": "Member cannot change allowlist",
+      "pass": true
+    },
+    {
+      "name": "Owner can upload photo",
+      "pass": true
+    },
+    {
+      "name": "Friend can read private photo",
+      "pass": true
+    },
+    {
+      "name": "Photo public URL is denied",
+      "pass": true
+    },
+    {
+      "name": "Friend cannot delete photo",
+      "pass": true
+    },
+    {
+      "name": "Cannot upload into friend folder",
+      "pass": true
+    }
+  ]
+}
