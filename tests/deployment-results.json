@@ -1,0 +1,48 @@
+{
+  "checkedAt": "2026-10-16T20:56:59.918Z",
+  "domain": "https://sekkemache.info/",
+  "commit": "3d8818be747457aa4c795acdee6712d0a2e93229",
+  "workflow": {
+    "id": 38965317329,
+    "conclusion": "success",
+    "completedAt": "2026-10-16T20:52:26Z"
+  },
+  "assets": [
+    {
+      "path": "index.html",
+      "matches": true,
+      "sha256": "39cd9d7edd55a798d1f29edb0e24d8d870f844b466af7738833523e5ab6d63a9"
+    },
+    {
+      "path": "app.js",
+      "matches": true,
+      "sha256": "c156f86f296d2c5d16ec97f408402852b8ad32ba0c9d19b6790c1433da1f9b3c"
+    },
+    {
+      "path": "style.css",
+      "matches": true,
+      "sha256": "cf9bfc90e8578982bb814e9d60ee06568e6a44dff7d24651fabd20e7ec654dff"
+    }
+  ],
+  "mobileSmokeCheck": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "horizontalOverflow": false,
+    "rangeLabels": [
+      "rich",
+      "schniepi",
+      "noice"
+    ],
+    "rangeMin": 0,
+    "rangeMax": 100,
+    "rangeStep": 1,
+    "rangeTouchHeight": 48,
+    "bottomNavigation": "fixed",
+    "untouchedValues": "Nicht gesetzt",
+    "explicitZeroVisible": true,
+    "syntheticDataSaved": false
+  },
+  "proof": "tests/slutbook-mobile-live.png"
+}
