@@ -1,0 +1,50 @@
+{
+  "verified_at": "2026-10-16T18:50:53.640Z",
+  "checks": [
+    {
+      "name": "Filled field is rendered",
+      "passed": true
+    },
+    {
+      "name": "Empty optional field is omitted",
+      "passed": true
+    },
+    {
+      "name": "Empty optional group is omitted",
+      "passed": true
+    },
+    {
+      "name": "User content is escaped",
+      "passed": true
+    },
+    {
+      "name": "Owner can edit",
+      "passed": true
+    },
+    {
+      "name": "Friend can read filled profile",
+      "passed": true
+    },
+    {
+      "name": "Friend sees no edit or delete controls",
+      "passed": true
+    },
+    {
+      "name": "Unsafe profile links rejected",
+      "passed": true
+    },
+    {
+      "name": "Instagram handles normalize",
+      "passed": true
+    }
+  ],
+  "browser": [
+    "Safari login succeeded",
+    "Person created through form",
+    "Only filled Wohnort field rendered",
+    "GitHub Pages HTTPS sign-in succeeded",
+    "Chapter created through live form",
+    "Chapter readable by other account",
+    "Synthetic profile and chapter removed"
+  ]
+}

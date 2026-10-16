@@ -18,6 +18,10 @@ Serve this directory with a static HTTP server. No build step is needed. The Sup
 
 ## Hosting
 
+Live: https://nicoalexanderbauer-design.github.io/storybook/
+
+The GitHub Pages deployment is enabled with HTTPS. The IONOS custom-domain assignment is pending confirmation of the intended domain name.
+
 GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
 
 Set the intended custom domain in Pages before replacing any DNS records. For an IONOS apex domain use GitHub's documented A records, and point www with a CNAME at the GitHub account's github.io hostname. Preserve all existing mail records. Enable Enforce HTTPS after certificate issuance.
@@ -34,7 +38,7 @@ Backend additions are isolated under the sb_ prefix and storybook_private schema
 
 ## Validation
 
-The recorded API checks are in tests/access-results.json. They verify anonymous denial, mutual read access, write isolation, ownership constraints and protected photo upload/download/delete behavior. Additional SQL role tests verified that authenticated nonmembers see no records. Test data was removed.
+The 22 recorded API checks are in tests/access-results.json. Nine render/security assertions are recorded in tests/render-results.json. Safari was also used to verify live sign-in, profile creation, optional-field omission and chapter creation; the chapter was readable by the second account. They verify anonymous denial, mutual read access, write isolation, ownership constraints and protected photo upload/download/delete behavior. Additional SQL role tests verified that authenticated nonmembers see no records. Test data was removed.
 
 ## Operations
 
