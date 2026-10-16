@@ -4,6 +4,24 @@ Status checked on 16 October 2026: the domain is registered at IONOS and still p
 
 The working site is https://nicoalexanderbauer-design.github.io/storybook/.
 
+## Registration verified
+
+The authoritative INFO registry RDAP reports registration on 16 October 2026 at 18:47:20 UTC (20:47 Berlin), expiration on 16 October 2027, and status `client transfer prohibited` / `add period`. There is no `client hold` or `server hold` status. Public DNS resolves through IONOS nameservers. These facts confirm a registered, delegated domain; they do not reveal the account's invoice/payment status.
+
+Registry: https://rdap.identitydigital.services/rdap/domain/sekkemache.info
+
+## Alternative access without browser automation
+
+IONOS provides an authenticated DNS API. A GitHub Pages DomainConnect template was not available in the published DomainConnect templates checked on 16 October 2026.
+
+1. Create an API key at https://developer.hosting.ionos.de/keys, named `Slutbook-DNS`.
+2. On this Mac, open `deployment/IONOS-Zugang.command`. Enter the prefix and secret in the hidden terminal prompts. Do not paste the key into chat, a repository, a screenshot or a website form belonging to this project.
+3. The helper verifies that the key can access `sekkemache.info`, then saves it locally in `.local/ionos-dns-key` with owner-only permissions. The directory is excluded from Git. It does not change DNS.
+4. Once access is ready, set GitHub's custom domain, read and back up the current IONOS zone, and update only the apex A/AAAA groups and the www CNAME. The official API supports `PATCH /dns/v1/zones/{zoneId}` to replace matching name/type groups without replacing the complete zone. Preserve unrelated records and verify them afterward.
+5. Remove the local key after completion and revoke the temporary key in IONOS.
+
+Official API specification: https://developer.hosting.ionos.de/assets/kms-swagger-specs/dns.yaml
+
 ## Pending changes
 
 1. In https://github.com/nicoalexanderbauer-design/storybook/settings/pages set Custom domain to `sekkemache.info`. This creates the root `CNAME` file.
