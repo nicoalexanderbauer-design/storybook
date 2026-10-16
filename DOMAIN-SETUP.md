@@ -1,31 +1,8 @@
 # sekkemache.info
 
-Status checked on 16 October 2026: the domain is registered at IONOS and still points to IONOS hosting. The DNS change is pending because no authenticated IONOS browser/API control is available in this session. This is an access/capability issue, not a missing user authorization.
+Configuration applied on 16 October 2026. IONOS DNS and the GitHub Pages custom-domain binding are configured. Domain ownership is verified in the GitHub account `nicoalexanderbauer-design`. HTTPS certificate issuance is in progress; this file must be updated with the completed checks before the deployment is marked finished.
 
-The working site is https://nicoalexanderbauer-design.github.io/storybook/.
-
-## Registration verified
-
-The authoritative INFO registry RDAP reports registration on 16 October 2026 at 18:47:20 UTC (20:47 Berlin), expiration on 16 October 2027, and status `client transfer prohibited` / `add period`. There is no `client hold` or `server hold` status. Public DNS resolves through IONOS nameservers. These facts confirm a registered, delegated domain; they do not reveal the account's invoice/payment status.
-
-Registry: https://rdap.identitydigital.services/rdap/domain/sekkemache.info
-
-## Alternative access without browser automation
-
-IONOS provides an authenticated DNS API. A GitHub Pages DomainConnect template was not available in the published DomainConnect templates checked on 16 October 2026.
-
-1. Create an API key at https://developer.hosting.ionos.de/keys, named `Slutbook-DNS`.
-2. On this Mac, open `deployment/IONOS-Zugang.command`. Enter the prefix and secret in the hidden terminal prompts. Do not paste the key into chat, a repository, a screenshot or a website form belonging to this project.
-3. The helper verifies that the key can access `sekkemache.info`, then saves it locally in `.local/ionos-dns-key` with owner-only permissions. The directory is excluded from Git. It does not change DNS.
-4. Once access is ready, set GitHub's custom domain, read and back up the current IONOS zone, and update only the apex A/AAAA groups and the www CNAME. The official API supports `PATCH /dns/v1/zones/{zoneId}` to replace matching name/type groups without replacing the complete zone. Preserve unrelated records and verify them afterward.
-5. Remove the local key after completion and revoke the temporary key in IONOS.
-
-Official API specification: https://developer.hosting.ionos.de/assets/kms-swagger-specs/dns.yaml
-
-## Pending changes
-
-1. In https://github.com/nicoalexanderbauer-design/storybook/settings/pages set Custom domain to `sekkemache.info`. This creates the root `CNAME` file.
-2. In the IONOS DNS settings for **sekkemache.info only**, replace the existing apex A value `217.160.0.153` and the existing AAAA value `2001:8d8:100f:f000::200` with the records below. Add the `www` CNAME. Do not change nameservers, MX, TXT, mail configuration, or other domains.
+## DNS configuration
 
 | Type | Host | Value |
 |---|---|---|
@@ -38,9 +15,39 @@ Official API specification: https://developer.hosting.ionos.de/assets/kms-swagge
 | AAAA | @ | 2606:50c0:8002::153 |
 | AAAA | @ | 2606:50c0:8003::153 |
 | CNAME | www | nicoalexanderbauer-design.github.io |
+| TXT | _github-pages-challenge-nicoalexanderbauer-design | d7711d7e97a0326d5232c6abac1c09 |
 
-3. Wait for GitHub's DNS check and certificate, then enable Enforce HTTPS.
-4. Verify both `https://sekkemache.info/` and `https://www.sekkemache.info/`, the HTTP-to-HTTPS redirects, and a real login. The generic login page may be public; journal data and photos must still require authentication.
-5. Verify domain ownership in the GitHub account Pages settings if available, using the exact GitHub-generated TXT challenge. No challenge value has been fabricated or prefilled.
+TTL is 300 seconds for these new web and verification records. The TXT value is a public domain-ownership challenge, not an authentication credential.
 
-Reference: [GitHub's custom-domain documentation](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site).
+Only IONOS's Default Site A, AAAA and `_dep_ws_mutex` records were replaced/deactivated. The following existing records are preserved:
+
+- MX @: 10 mx00.ionos.de and 10 mx01.ionos.de.
+- TXT @: v=spf1 include:_spf-eu.ionos.com ~all.
+- CNAME _dmarc: dmarc.ionos.de.
+- CNAME s1-ionos._domainkey: s1.dkim.ionos.com.
+- CNAME s2-ionos._domainkey: s2.dkim.ionos.com.
+- CNAME autodiscover: adsredir.ionos.info.
+- CNAME _domainconnect: _domainconnect.ionos.com.
+- Existing IONOS nameservers.
+
+The browser was used to apply the configuration. No IONOS API key was created or required. The optional local helper in deployment/ is not needed for this completed DNS configuration.
+
+## Validation so far
+
+- GitHub Pages shows the custom domain sekkemache.info and deploys the root CNAME from main.
+- The IONOS DNS table shows all required records and preserved mail records.
+- Cloudflare's public DNS resolver returns all four A records, all four AAAA records, the www CNAME and the verification TXT.
+- GitHub account Pages settings reports: Successfully verified sekkemache.info.
+- GitHub has requested a TLS certificate. HTTPS enforcement, direct browser access and login checks remain pending certificate issuance.
+
+## Registration
+
+The authoritative INFO registry reports registration on 16 October 2026 and expiration on 16 October 2027, without a client/server hold. The IONOS account also shows the domain as active. Billing status was not inspected.
+
+## Management
+
+- GitHub repository Pages: https://github.com/nicoalexanderbauer-design/storybook/settings/pages
+- GitHub verified domains: https://github.com/settings/pages
+- IONOS DNS: https://mein.ionos.de/domain-dns-settings/sekkemache.info
+
+Keep the root CNAME and the ownership TXT record in place. Do not remove authentication or database/storage RLS to troubleshoot DNS or HTTPS.

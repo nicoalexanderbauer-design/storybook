@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-10-16T20:20:13.805Z",
+  "results": [
+    {
+      "name": "Untouched scales omitted",
+      "passed": true
+    },
+    {
+      "name": "Zero remains a value",
+      "passed": true
+    },
+    {
+      "name": "100 remains a value",
+      "passed": true
+    },
+    {
+      "name": "Reject invalid percentage: -1",
+      "passed": true
+    },
+    {
+      "name": "Reject invalid percentage: 101",
+      "passed": true
+    },
+    {
+      "name": "Reject invalid percentage: 12.5",
+      "passed": true
+    },
+    {
+      "name": "Reject invalid percentage: invalid",
+      "passed": true
+    },
+    {
+      "name": "All absent ratings hide section",
+      "passed": true
+    },
+    {
+      "name": "Null and malformed stored values hidden",
+      "passed": true
+    },
+    {
+      "name": "Only present ratings shown",
+      "passed": true
+    }
+  ]
+}

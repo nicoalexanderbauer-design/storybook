@@ -1,0 +1,74 @@
+{
+  "checkedAt": "2026-10-16T20:24:49.392Z",
+  "environment": "In-app browser with responsive viewport overrides; not a physical iPhone",
+  "checks": [
+    {
+      "name": "Both existing accounts sign in",
+      "passed": true
+    },
+    {
+      "name": "0 and 100 percent survive save and reopen",
+      "passed": true
+    },
+    {
+      "name": "Untouched rating omitted from own and friend views",
+      "passed": true
+    },
+    {
+      "name": "Friend profile offers no edit controls",
+      "passed": true
+    },
+    {
+      "name": "Tap on unchanged midpoint deliberately stores 50 percent",
+      "passed": true
+    },
+    {
+      "name": "Remove ratings persists absence, not zero",
+      "passed": true
+    },
+    {
+      "name": "All unset ratings hide entire section",
+      "passed": true
+    },
+    {
+      "name": "No horizontal page overflow at 320, 375, 390, 430 and 844 pixels",
+      "passed": true
+    },
+    {
+      "name": "Single column form at 320 and 390 pixels",
+      "passed": true
+    },
+    {
+      "name": "Form has no horizontal overflow at 320 pixels",
+      "passed": true
+    },
+    {
+      "name": "54 pixel navigation, 48 pixel range controls, 44 pixel save button",
+      "passed": true
+    },
+    {
+      "name": "16 pixel mobile search field",
+      "passed": true
+    },
+    {
+      "name": "Fixed navigation in phone landscape",
+      "passed": true
+    },
+    {
+      "name": "Navigation returns to page top",
+      "passed": true
+    },
+    {
+      "name": "Desktop sidebar retained at 1280 pixels",
+      "passed": true
+    },
+    {
+      "name": "No browser console errors or warnings",
+      "passed": true
+    },
+    {
+      "name": "Synthetic test record removed",
+      "passed": true
+    }
+  ]
+}

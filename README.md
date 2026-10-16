@@ -7,6 +7,8 @@ A private shared journal with a static GitHub Pages frontend and Supabase Auth, 
 - Two provisioned members; no public registration in this application.
 - Read both Slutbooks; edit only records belonging to the authenticated account.
 - People, chronological journal entries, optional profile details and Instagram links.
+- Optional 0–100% scales for rich, schniepi and noice. Zero is a value; untouched or removed scales stay hidden.
+- Phone layout with fixed bottom navigation, safe-area spacing, single-column forms, 44px touch targets and 16px form text.
 - Connections across people: dating, friends, family, work and custom relationships.
 - Private image uploads, client-side resizing, metadata stripping and authenticated downloads.
 - Search, status filters, mobile layouts, empty-field omission, account password changes and JSON export.
@@ -19,15 +21,12 @@ Serve this directory with a static HTTP server. No build step is needed. The Sup
 
 ## Hosting
 
-Live: https://nicoalexanderbauer-design.github.io/storybook/
+Canonical domain: https://sekkemache.info/
 
-The GitHub Pages deployment is enabled with HTTPS. Requested custom domain: sekkemache.info. DNS currently points to IONOS; the existing GitHub URL remains active until the DNS connection can be completed.
+GitHub Pages serves the root of `main`. The root `CNAME` binds `sekkemache.info` to this repository; `www.sekkemache.info` aliases the GitHub account hostname. IONOS manages the DNS, with all four GitHub IPv4 and IPv6 addresses. Existing mail records are preserved.
 
-GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
+The domain is verified in the owner's GitHub account to restrict Pages publishing on the domain and its immediate subdomains. Keep the verification TXT record in DNS. HTTPS certificate issuance was requested on 16 October 2026; final validation is recorded in DOMAIN-SETUP.md.
 
-Set the intended custom domain in Pages before replacing any DNS records. For an IONOS apex domain use GitHub's documented A records, and point www with a CNAME at the GitHub account's github.io hostname. Preserve all existing mail records. Enable Enforce HTTPS after certificate issuance.
-
-The exact pending DNS changes are in DOMAIN-SETUP.md. A root CNAME is deliberately not active while DNS still points at IONOS, so the working GitHub address remains usable.
 
 ## Security boundary
 
@@ -46,6 +45,8 @@ Backend additions are isolated under the sb_ prefix and storybook_private schema
 The 22 recorded API checks are in tests/access-results.json. Nine render/security assertions are recorded in tests/render-results.json. Safari was also used to verify live sign-in, profile creation, optional-field omission and chapter creation; the chapter was readable by the second account. They verify anonymous denial, mutual read access, write isolation, ownership constraints and protected photo upload/download/delete behavior. Additional SQL role tests verified that authenticated nonmembers see no records. Test data was removed.
 
 After the security update, 27 live API checks passed in tests/security-results.json, including immediately revoked sessions, photo write isolation and unchanged account credentials. Five additional client checks passed in tests/client-security-results.json. The API test implementation is tests/security-audit.mjs and accepts credentials at runtime without storing them. All synthetic records and photos were removed, and test sessions were signed out. This is a targeted security check, not a guarantee against every possible vulnerability.
+
+Ten rating validation checks are recorded in tests/ratings-results.json. Seventeen responsive/browser checks are recorded in tests/mobile-results.json, including both profiles, persisted 0/50/100 values, removal, omitted empty sections, iPhone-sized portrait/landscape viewports and desktop layout. These are browser viewport checks, not tests on a physical iPhone. Synthetic test data was removed.
 
 ## Operations
 
