@@ -1,0 +1,115 @@
+{
+  "checkedAt": "2026-10-16T19:20:36.132Z",
+  "results": [
+    {
+      "name": "Login: lutschiluki",
+      "passed": true
+    },
+    {
+      "name": "Login: nonchalantnico",
+      "passed": true
+    },
+    {
+      "name": "Anonymous denied: sb_members",
+      "passed": true
+    },
+    {
+      "name": "Anonymous denied: sb_people",
+      "passed": true
+    },
+    {
+      "name": "Anonymous denied: sb_entries",
+      "passed": true
+    },
+    {
+      "name": "Anonymous denied: sb_connections",
+      "passed": true
+    },
+    {
+      "name": "Member cannot grant membership",
+      "passed": true
+    },
+    {
+      "name": "Owner creates person",
+      "passed": true
+    },
+    {
+      "name": "Friend may read person",
+      "passed": true
+    },
+    {
+      "name": "Friend cannot update person",
+      "passed": true
+    },
+    {
+      "name": "Friend cannot delete person",
+      "passed": true
+    },
+    {
+      "name": "Owner cannot transfer ownership",
+      "passed": true
+    },
+    {
+      "name": "Friend cannot write chapter for owner",
+      "passed": true
+    },
+    {
+      "name": "Owner uploads private photo",
+      "passed": true
+    },
+    {
+      "name": "Friend reads private photo",
+      "passed": true
+    },
+    {
+      "name": "Anonymous cannot download photo",
+      "passed": true
+    },
+    {
+      "name": "Public URL cannot download photo",
+      "passed": true
+    },
+    {
+      "name": "Friend cannot replace photo",
+      "passed": true
+    },
+    {
+      "name": "Friend cannot delete photo",
+      "passed": true
+    },
+    {
+      "name": "Login: nonchalantnico",
+      "passed": true
+    },
+    {
+      "name": "Logout succeeds",
+      "passed": true
+    },
+    {
+      "name": "Revoked JWT immediately loses people access",
+      "passed": true
+    },
+    {
+      "name": "Revoked JWT immediately loses membership access",
+      "passed": true
+    },
+    {
+      "name": "Revoked JWT immediately loses photo access",
+      "passed": true
+    },
+    {
+      "name": "Revoked JWT cannot create records",
+      "passed": true
+    },
+    {
+      "name": "Other active session still works",
+      "passed": true
+    },
+    {
+      "name": "Owner record unchanged",
+      "passed": true
+    }
+  ],
+  "passed": 27,
+  "failed": 0
+}

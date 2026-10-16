@@ -1,16 +1,17 @@
-# Storybook
+# Slutbook
 
 A private shared journal with a static GitHub Pages frontend and Supabase Auth, PostgreSQL row-level security, and private photo storage.
 
 ## Features
 
 - Two provisioned members; no public registration in this application.
-- Read both storybooks; edit only records belonging to the authenticated account.
+- Read both Slutbooks; edit only records belonging to the authenticated account.
 - People, chronological journal entries, optional profile details and Instagram links.
 - Connections across people: dating, friends, family, work and custom relationships.
 - Private image uploads, client-side resizing, metadata stripping and authenticated downloads.
 - Search, status filters, mobile layouts, empty-field omission, account password changes and JSON export.
 - Semantic username/password fields for Safari Password AutoFill.
+- Original pink/cyan pole-dancer app icon with an eighties Miami neon aesthetic.
 
 ## Run
 
@@ -20,17 +21,21 @@ Serve this directory with a static HTTP server. No build step is needed. The Sup
 
 Live: https://nicoalexanderbauer-design.github.io/storybook/
 
-The GitHub Pages deployment is enabled with HTTPS. The IONOS custom-domain assignment is pending confirmation of the intended domain name.
+The GitHub Pages deployment is enabled with HTTPS. Requested custom domain: sekkemache.info. DNS currently points to IONOS; the existing GitHub URL remains active until the DNS connection can be completed.
 
 GitHub Pages: Settings → Pages → Deploy from a branch → main → / (root).
 
 Set the intended custom domain in Pages before replacing any DNS records. For an IONOS apex domain use GitHub's documented A records, and point www with a CNAME at the GitHub account's github.io hostname. Preserve all existing mail records. Enable Enforce HTTPS after certificate issuance.
+
+The exact pending DNS changes are in DOMAIN-SETUP.md. A root CNAME is deliberately not active while DNS still points at IONOS, so the working GitHub address remains usable.
 
 ## Security boundary
 
 Only the generic frontend and database schema belong in Git. Never commit passwords, access/refresh tokens, service-role keys, database exports or user uploads.
 
 The publishable browser API key is intentionally public. Every sb_* table has RLS. An administrator-maintained membership table controls access; authorization never uses editable user metadata. Database constraints preserve ownership relationships between people and journal entries. Update policies enforce both USING and WITH CHECK. The private membership lookup function is outside exposed schemas with restricted execution permissions.
+
+Membership also requires a live matching Supabase Auth session. A revoked session loses database and photo access immediately, including with an otherwise unexpired JWT. Restrictive photo policies separately guard anonymous access and owner-only updates/deletes. The application refuses to expose its login inside a frame or over plain HTTP; external scripts, inline scripts and unsafe links are restricted.
 
 Photos use the private storybook-photos bucket, UUID-based owner paths and authenticated downloads. No signed or public image links are exposed. Object URLs are revoked on logout. Password hashes and identities are held only in Supabase Auth. Authentication sessions are persisted by the SDK; journal content is not written into local storage. External Instagram links do not send a Referer.
 
@@ -40,9 +45,13 @@ Backend additions are isolated under the sb_ prefix and storybook_private schema
 
 The 22 recorded API checks are in tests/access-results.json. Nine render/security assertions are recorded in tests/render-results.json. Safari was also used to verify live sign-in, profile creation, optional-field omission and chapter creation; the chapter was readable by the second account. They verify anonymous denial, mutual read access, write isolation, ownership constraints and protected photo upload/download/delete behavior. Additional SQL role tests verified that authenticated nonmembers see no records. Test data was removed.
 
+After the security update, 27 live API checks passed in tests/security-results.json, including immediately revoked sessions, photo write isolation and unchanged account credentials. Five additional client checks passed in tests/client-security-results.json. The API test implementation is tests/security-audit.mjs and accepts credentials at runtime without storing them. All synthetic records and photos were removed, and test sessions were signed out. This is a targeted security check, not a guarantee against every possible vulnerability.
+
 ## Operations
 
-The source schema is in backend/schema.sql. It is an initial schema reference, not an idempotent migration. Existing member IDs are not included. Accounts use internal email-shaped identifiers for username authentication; those are not recovery mailboxes. Passwords can be changed while signed in. Forgotten-password recovery currently requires the project administrator.
+The initial source schema is in backend/schema.sql; apply backend/hardening.sql afterward. These are schema references, not idempotent migrations. Existing member IDs are not included. Accounts use internal email-shaped identifiers for username authentication; those are not recovery mailboxes. Passwords can be changed while signed in. Forgotten-password recovery currently requires the project administrator.
+
+GitHub Pages does not provide custom response-header configuration. CSP is supplied through HTML, and the frame guard is a client-side fallback rather than a frame-ancestors/X-Frame-Options response header. The shared Supabase project also reports disabled leaked-password screening; that paid project-wide feature is not enabled by this application. Existing account passwords remain unchanged at the owner's explicit request. See the [Supabase password-security documentation](https://supabase.com/docs/guides/auth/password-security#password-strength-and-leaked-password-protection).
 
 Future invitations should be implemented through an authenticated administrative path; do not add public provisioning endpoints. Never implement login by comparing a password in browser JavaScript.
 

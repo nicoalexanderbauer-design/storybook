@@ -1,0 +1,25 @@
+{
+  "checkedAt": "2026-10-16T19:21:09.134Z",
+  "results": [
+    {
+      "name": "HTTPS page is usable",
+      "passed": true
+    },
+    {
+      "name": "Embedded login remains hidden",
+      "passed": true
+    },
+    {
+      "name": "HTTP redirects before login",
+      "passed": true
+    },
+    {
+      "name": "Local preview remains usable",
+      "passed": true
+    },
+    {
+      "name": "Application JavaScript parses",
+      "passed": true
+    }
+  ]
+}

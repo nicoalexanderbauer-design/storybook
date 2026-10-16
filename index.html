@@ -6,25 +6,26 @@
   <meta name="theme-color" content="#f5f5f7">
   <meta name="robots" content="noindex,nofollow,noarchive">
   <meta name="referrer" content="no-referrer">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src https://qjaxwezvzykmkklwmnin.supabase.co; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' blob: data:; connect-src https://qjaxwezvzykmkklwmnin.supabase.co; font-src 'self'; object-src 'none'; base-uri 'none'; form-action 'self'; frame-src 'none'; worker-src 'none'; upgrade-insecure-requests">
   <meta name="description" content="Ein privater Ort für eure Geschichten.">
-  <title>Storybook · Just between us</title>
-  <link rel="icon" href="./icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./style.css">
+  <title>Slutbook · Just between us</title>
+  <link rel="icon" href="./icon-slutbook.png" type="image/png">
+  <link rel="apple-touch-icon" href="./icon-slutbook.png">
+  <link rel="stylesheet" href="./style.css?v=slutbook-2">
   <script defer src="./vendor/supabase-2.118.0.js"></script>
-  <script defer src="./app.js"></script>
+  <script defer src="./app.js?v=slutbook-2"></script>
 </head>
 <body>
   <a class="skip" href="#main">Zum Inhalt</a>
   <div id="login-page" class="login-page">
-    <header class="login-nav"><a class="wordmark" href="./"><img src="./icon.svg" alt="" width="28" height="28">Storybook</a><span class="private-label">Ein privater Kreis.</span></header>
+    <header class="login-nav"><a class="wordmark" href="./"><img src="./icon-slutbook.png" alt="" width="38" height="38">Slutbook</a><span class="private-label">Ein privater Kreis.</span></header>
     <main id="login-main" class="login-content">
       <section class="login-intro"><div class="eyebrow">JUST BETWEEN US</div><h1>Gute Dates.<br>Große Geschichten.</h1><p>Die Schmetterlinge. Die Plot Twists.<br>Und alles, was dazwischen passiert.</p><div class="intro-bottom"><span class="mini-orbit">∞</span><span>Euer Logbuch. Nur für euch.</span></div></section>
-      <section class="login-card" aria-labelledby="login-title"><div class="app-icon"><img src="./icon.svg" alt="" width="56" height="56"></div><h2 id="login-title">Schön, dass du da bist.</h2><p>Deine Geschichten warten auf dich.</p>
+      <section class="login-card" aria-labelledby="login-title"><div class="app-icon"><img src="./icon-slutbook.png" alt="" width="72" height="72"></div><h2 id="login-title">Schön, dass du da bist.</h2><p>Deine Geschichten warten auf dich.</p>
         <form id="login-form" method="post" action="./" autocomplete="on">
           <label for="username">Benutzername</label><input id="username" name="username" type="text" autocomplete="username" autocapitalize="none" spellcheck="false" required maxlength="100" placeholder="Dein Benutzername">
           <label for="password">Passwort</label><div class="password-wrap"><input id="password" name="password" type="password" autocomplete="current-password" required placeholder="Dein Passwort"><button type="button" id="show-password" class="password-eye" aria-label="Passwort anzeigen">Anzeigen</button></div>
-          <p id="login-error" class="form-error" role="alert"></p><button type="submit" class="button primary full">Storybook öffnen <span aria-hidden="true">→</span></button>
+          <p id="login-error" class="form-error" role="alert"></p><button type="submit" class="button primary full">Slutbook öffnen <span aria-hidden="true">→</span></button>
         </form><div class="login-lock"><span aria-hidden="true">⌑</span> Nur mit persönlichem Zugang.</div>
       </section>
     </main><footer class="login-footer"><span>Weniger Swipen. Mehr Erinnern.</span><span>Privat. Persönlich. Verbunden.</span></footer>
